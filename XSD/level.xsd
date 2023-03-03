@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="level" type="levelType"/>
+  <xs:complexType name="tileType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="x" use="optional"/>
+        <xs:attribute type="xs:string" name="y" use="optional"/>
+        <xs:attribute type="xs:string" name="char" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="TileRowType">
+    <xs:sequence>
+      <xs:element type="tileType" name="tile" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="row_number" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="teleportType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="x1" use="optional"/>
+        <xs:attribute type="xs:string" name="y1" use="optional"/>
+        <xs:attribute type="xs:string" name="x2" use="optional"/>
+        <xs:attribute type="xs:string" name="y2" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="TeleportDataType">
+    <xs:sequence>
+      <xs:element type="teleportType" name="teleport" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="size"/>
+  </xs:complexType>
+  <xs:complexType name="ItemType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="char" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="InventoryType">
+    <xs:sequence>
+      <xs:element type="ItemType" name="Item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlayerType">
+    <xs:sequence>
+      <xs:element type="InventoryType" name="Inventory"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="dir"/>
+    <xs:attribute type="xs:string" name="x"/>
+    <xs:attribute type="xs:string" name="y"/>
+  </xs:complexType>
+  <xs:complexType name="EnemyType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="x" use="optional"/>
+        <xs:attribute type="xs:string" name="y" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="EnemyDataType">
+    <xs:sequence>
+      <xs:element type="EnemyType" name="Enemy" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="levelType">
+    <xs:sequence>
+      <xs:element type="TileRowType" name="TileRow" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="TeleportDataType" name="TeleportData"/>
+      <xs:element type="PlayerType" name="Player"/>
+      <xs:element type="EnemyDataType" name="EnemyData"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="width"/>
+    <xs:attribute type="xs:string" name="height"/>
+    <xs:attribute type="xs:string" name="number"/>
+  </xs:complexType>
+</xs:schema>

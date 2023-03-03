@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="example.xsd"?>
+<Game>
+    <Level index="1">
+        <Action pingOffset="6453">
+            <Actor typ="player">
+                <X>4</X>
+                <Y>4</Y>
+            </Actor>
+            <EndDirection>LEFT</EndDirection>
+        </Action>
+        <Action pingOffset="6453">
+            <Actor typ="player">
+                <X>4</X>
+                <Y>4</Y>
+            </Actor>
+            <EndDirection>LEFT</EndDirection>
+        </Action>
+    </Level>
+    <Level index="2">
+        <Action pingOffset="6453">
+            <Actor typ="player">
+                <X>4</X>
+                <Y>4</Y>
+            </Actor>
+            <EndDirection>LEFT</EndDirection>
+        </Action>
+        <Action pingOffset="6453">
+            <Actor typ="player">
+                <X>4</X>
+                <Y>4</Y>
+            </Actor>
+            <EndDirection>LEFT</EndDirection>
+        </Action>
+    </Level>
+    <Level index="3">
+        <Action pingOffset="6454">
+            <Actor typ="player">
+                <X>4</X>
+                <Y>4</Y>
+            </Actor>
+            <EndDirection>LEFT</EndDirection>
+        </Action>
+        <Action pingOffset="6453">
+            <Actor typ="enemy1">
+                <X>4</X>
+                <Y>4</Y>
+            </Actor>
+            <EndDirection>LEFT</EndDirection>
+        </Action>
+    </Level>
+</Game>
